@@ -1,0 +1,13 @@
+body {
+  padding: 50px;
+}
+
+p {
+  cursor: pointer;
+  margin: 0;
+}
+
+.completed {
+  color: darkgray;
+  text-decoration: line-through;
+}
