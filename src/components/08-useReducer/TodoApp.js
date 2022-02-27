@@ -3,18 +3,11 @@ import { todoReducar } from "./todoReducer";
 import { useForm } from "../hooks/useForm";
 
 import "./styles.css";
+import { ToDoList } from "./ToDoList";
 
 const init = () => {
   // almacenando en el LocalStorage
   return JSON.parse(localStorage.getItem("todos")) || [];
-
-  // return [
-  //   {
-  //     id: new Date().getTime(),
-  //     desc: "Aprender React",
-  //     done: false,
-  //   },
-  // ];
 };
 
 export const TodoApp = () => {
@@ -74,32 +67,11 @@ export const TodoApp = () => {
 
       <div className="row">
         <div className="col-7">
-          {/* <ToDoList todos handleDelete handleToggle/> */}
-          <table className="table">
-            <tbody>
-              {todos.map((todo, i) => (
-                // <ToDoListItem todo index handleDelete handleToggle/>
-                <tr key={todo.id}>
-                  <td>
-                    <p
-                      className={`${todo.done && "completed"}`}
-                      onClick={() => handleToggle(todo.id)}
-                    >
-                      {i + 1}. {todo.desc}
-                    </p>
-                  </td>
-                  <td>
-                    <button
-                      className="btn btn-danger btn-sm"
-                      onClick={() => handleDelete(todo.id)}
-                    >
-                      Borrar
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <ToDoList
+            todos={todos}
+            handleDelete={handleDelete}
+            handleToggle={handleToggle}
+          />
         </div>
 
         <div className="col-5">
